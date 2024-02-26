@@ -2,14 +2,16 @@ services:
   frontend:
     image: nw1106/quirknotes_frontend:latest
     ports:
-      - "3000:3000"
+      - "3000:80"
     depends_on:
       - backend
 
   backend:
     image: nw1106/quirknotes_backend:latest
     ports:
-      -"4000:4000"
+      - "4000:4000"
+    environment:
+      - ENV=Docker
     depends_on:
       - mongodb
   
